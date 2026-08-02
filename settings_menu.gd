@@ -1,7 +1,5 @@
 extends Control
 
-signal menu_closed
-
 @onready var hit_button: Button = $Panel/VBoxContainer/HitRow/HitButton
 @onready var stand_button: Button = $Panel/VBoxContainer/StandRow/StandButton
 @onready var new_game_button: Button = $Panel/VBoxContainer/NewGameRow/NewGameButton
@@ -34,12 +32,20 @@ func _on_new_game_button_pressed() -> void:
 	new_game_button.modulate = Color.YELLOW
 	
 func _input(event: InputEvent) -> void:
+	if not visible:
+		return
 	if action_to_rebind != "" and event is InputEventKey:
 		InputMap.action_erase_events(action_to_rebind)
 		InputMap.action_add_event(action_to_rebind, event)
 		reset_button_text(action_to_rebind)
 		action_to_rebind = ""
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("Settings"): #ESC
+		close_menu()
+		get_viewport().set_input_as_handled()
+
+func close_menu() -> void:
+	visible = false
 
 func reset_button_text(action:String) -> void:
 	if (action == "Hit"):
@@ -66,4 +72,3 @@ func reset_button_text(action:String) -> void:
 
 func _on_close_button_pressed() -> void:
 	visible = false
-	menu_closed.emit()

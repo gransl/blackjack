@@ -23,6 +23,8 @@ var is_game_over: bool
 enum WinReason {BUST, SCORE, BLACKJACK}
 
 func _input(event: InputEvent) -> void:
+	if settings_menu.visible:
+		return
 	if event.is_action_pressed("Hit"):
 		if not is_game_over:
 			_on_hit_pressed()
@@ -32,12 +34,23 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("New Game"):
 		_on_new_game_pressed()
 	elif event.is_action_pressed("Settings"):
+		print("GAME saw Settings, menu visible: ", settings_menu.visible)
 		_on_settings_button_pressed()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	start_new_round()
+		
+func start_new_round() -> void:
 	is_game_over = false
-	settings_menu.menu_closed.connect(_on_settings_menu_closed)
+	game_message.text = ""
+	enable_play_buttons()
+	
+	# clear old cards
+	for child in player_hand_container.get_children():
+		child.queue_free()
+	for child in dealer_hand_container.get_children():
+		child.queue_free()
 	
 	# Deal Hands
 	deck = Deck.new()
@@ -81,7 +94,6 @@ func _ready() -> void:
 	if (!is_game_over):
 		player_total_label.text = "Player Total: %s" % str(player_hand.get_total())
 		dealer_total_label.text = "Dealer Total: " 
-		
 
 # TODO: revisit if this should be in this class...
 func display_card(path:String, container: HBoxContainer) -> void:
@@ -195,18 +207,8 @@ func enable_play_buttons() -> void:
 	stand_button.disabled = false
 	
 func _on_new_game_pressed() -> void:
-	for child in player_hand_container.get_children():
-		child.queue_free()
-	for child in dealer_hand_container.get_children():
-		child.queue_free()
-	is_game_over = false;
-	game_message.text = ""
-	enable_play_buttons()
-	_ready()
+	start_new_round()
 
 func _on_settings_button_pressed() -> void:
+	print("opening menu, visible was: ", settings_menu.visible)
 	settings_menu.visible = true
-	
-func _on_settings_menu_closed() -> void:
-	settings_button.grab_focus()
-	
