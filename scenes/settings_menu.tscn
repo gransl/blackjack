@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://cho1yrafagejj"]
+
+[ext_resource type="Script" uid="uid://c6q1ailyi018i" path="res://settings_menu.gd" id="1_05p07"]
+
+[node name="SettingsMenu" type="Control" unique_id=1620806524]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_05p07")
+
+[node name="Panel" type="Panel" parent="." unique_id=1955325608]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=1506065113]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=791682883]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -90.0
+offset_right = 122.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="SettingsLabelMarginContainer" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=199001008]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="SettingsLabel" type="Label" parent="Panel/VBoxContainer/SettingsLabelMarginContainer" unique_id=1501202966]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
+
+[node name="HitRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1844921908]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="HitLabel" type="Label" parent="Panel/VBoxContainer/HitRow" unique_id=91742088]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Hit"
+
+[node name="HitButton" type="Button" parent="Panel/VBoxContainer/HitRow" unique_id=1993545695]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="StandRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=741530106]
+layout_mode = 2
+
+[node name="StandLabel" type="Label" parent="Panel/VBoxContainer/StandRow" unique_id=975465883]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Stand"
+
+[node name="StandButton" type="Button" parent="Panel/VBoxContainer/StandRow" unique_id=382042117]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="NewGameRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=73475440]
+layout_mode = 2
+
+[node name="NewGameLabel" type="Label" parent="Panel/VBoxContainer/NewGameRow" unique_id=937055916]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "New Game"
+
+[node name="NewGameButton" type="Button" parent="Panel/VBoxContainer/NewGameRow" unique_id=1416303895]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="CloseButtonMarginContainer" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=177581612]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="CloseButton" type="Button" parent="Panel/VBoxContainer/CloseButtonMarginContainer" unique_id=2031917122]
+layout_mode = 2
+text = "Close
+"
+
+[connection signal="pressed" from="Panel/VBoxContainer/HitRow/HitButton" to="." method="_on_hit_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/StandRow/StandButton" to="." method="_on_stand_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/NewGameRow/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CloseButtonMarginContainer/CloseButton" to="." method="_on_close_button_pressed"]

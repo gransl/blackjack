@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://cmtgc0v2jo71e"]
+
+[ext_resource type="Script" uid="uid://cbltb33mfu344" path="res://src/Blackjack.gd" id="1_3frkl"]
+[ext_resource type="PackedScene" uid="uid://cho1yrafagejj" path="res://scenes/settings_menu.tscn" id="2_kvb06"]
+
+[node name="Blackjack" type="Control" unique_id=1975122213]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3frkl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2041281183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13094953, 0.44154742, 0.2066454, 1)
+
+[node name="SettingsLayer" type="CanvasLayer" parent="." unique_id=1242026118]
+layer = 2
+
+[node name="SettingsMenu" parent="SettingsLayer" unique_id=1620806524 instance=ExtResource("2_kvb06")]
+visible = false
+
+[node name="GameLayer" type="CanvasLayer" parent="." unique_id=731800819]
+
+[node name="GameTable" type="VBoxContainer" parent="GameLayer" unique_id=308746071]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DealerArea" type="VBoxContainer" parent="GameLayer/GameTable" unique_id=1360902874]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="GameLayer/GameTable/DealerArea" unique_id=2008672924]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DealerHand" type="HBoxContainer" parent="GameLayer/GameTable/DealerArea/CenterContainer" unique_id=801734160]
+layout_mode = 2
+alignment = 1
+
+[node name="DealerTotal" type="Label" parent="GameLayer/GameTable/DealerArea" unique_id=1864188288]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Dealer Total: "
+
+[node name="GameMessageMarginContainer" type="MarginContainer" parent="GameLayer/GameTable" unique_id=1357176529]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GameMessage" type="Label" parent="GameLayer/GameTable/GameMessageMarginContainer" unique_id=2061000411]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.09803922, 0.94509804)
+
+[node name="PlayerArea" type="VBoxContainer" parent="GameLayer/GameTable" unique_id=510188645]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerTotal" type="Label" parent="GameLayer/GameTable/PlayerArea" unique_id=1484751156]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Player Total:"
+
+[node name="CenterContainer" type="CenterContainer" parent="GameLayer/GameTable/PlayerArea" unique_id=1161647773]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerHand" type="HBoxContainer" parent="GameLayer/GameTable/PlayerArea/CenterContainer" unique_id=950778968]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionBarMarginContainer" type="MarginContainer" parent="GameLayer/GameTable" unique_id=1651205944]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ActionBar" type="HBoxContainer" parent="GameLayer/GameTable/ActionBarMarginContainer" unique_id=455168662]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Hit" type="Button" parent="GameLayer/GameTable/ActionBarMarginContainer/ActionBar" unique_id=745692494]
+layout_mode = 2
+text = "Hit"
+
+[node name="Stand" type="Button" parent="GameLayer/GameTable/ActionBarMarginContainer/ActionBar" unique_id=388151984]
+layout_mode = 2
+text = "Stand"
+
+[node name="Split" type="Button" parent="GameLayer/GameTable/ActionBarMarginContainer/ActionBar" unique_id=982820242]
+layout_mode = 2
+disabled = true
+text = "Split"
+
+[node name="Double" type="Button" parent="GameLayer/GameTable/ActionBarMarginContainer/ActionBar" unique_id=1858177722]
+layout_mode = 2
+disabled = true
+text = "Double"
+
+[node name="Insurance" type="Button" parent="GameLayer/GameTable/ActionBarMarginContainer/ActionBar" unique_id=1965581349]
+layout_mode = 2
+disabled = true
+text = "Insurance"
+
+[node name="SettingsButtonMarginContainer" type="MarginContainer" parent="GameLayer" unique_id=415066367]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SettingsButton" type="Button" parent="GameLayer/SettingsButtonMarginContainer" unique_id=2078261921]
+layout_mode = 2
+text = "Settings"
+
+[node name="NewGameButtonMarginContainer" type="MarginContainer" parent="GameLayer" unique_id=1145824969]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_bottom = 41.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="NewGameButton" type="Button" parent="GameLayer/NewGameButtonMarginContainer" unique_id=1135327600]
+layout_mode = 2
+text = "New Game"
+
+[connection signal="pressed" from="GameLayer/GameTable/ActionBarMarginContainer/ActionBar/Hit" to="." method="_on_hit_pressed"]
+[connection signal="pressed" from="GameLayer/GameTable/ActionBarMarginContainer/ActionBar/Stand" to="." method="_on_stand_pressed"]
+[connection signal="pressed" from="GameLayer/SettingsButtonMarginContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="GameLayer/NewGameButtonMarginContainer/NewGameButton" to="." method="_on_new_game_pressed"]

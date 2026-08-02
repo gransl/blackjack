@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bvaaihqg0xsw1"
+
+[deps]
+
+source_file="res://assets/cards/largeCards/_cards.csv"
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
