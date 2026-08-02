@@ -34,7 +34,6 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("New Game"):
 		_on_new_game_pressed()
 	elif event.is_action_pressed("Settings"):
-		print("GAME saw Settings, menu visible: ", settings_menu.visible)
 		_on_settings_button_pressed()
 
 # Called when the node enters the scene tree for the first time.
@@ -210,5 +209,4 @@ func _on_new_game_pressed() -> void:
 	start_new_round()
 
 func _on_settings_button_pressed() -> void:
-	print("opening menu, visible was: ", settings_menu.visible)
 	settings_menu.visible = true
