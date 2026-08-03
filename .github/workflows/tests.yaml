@@ -12,6 +12,8 @@ jobs:
         timeout-minutes: 15
         permissions:
             contents: read
+            checks: write
+            pull-requests: write
         steps:
             - uses: actions/checkout@v4
             - uses: MikeSchulze/gdUnit4-action@v1
