@@ -1,0 +1,24 @@
+name: Tests
+
+on: 
+    push: 
+        branches: [main, GdUnit4]
+    pull_request:
+        branches: [main]
+
+jobs:
+    test:
+        runs-on: ubuntu-22.04
+        timeout-minutes: 15
+        permissions:
+            contents: read
+            checks: write
+            pull-requests: write
+        steps:
+            - uses: actions/checkout@v4
+            - uses: MikeSchulze/gdUnit4-action@v1
+              with:
+                godot-version: '4.7.1'
+                paths: 'res://test/'
+                timeout: 5
+                report-name: test-results 
