@@ -4,12 +4,6 @@
 # Godot 3.x import cache (harmless to leave in)
 .import/
 
-# gdUnit4 test reports
-reports/
-
-#gdUnit4 file
-GdUnitRunner.cfg
-
 # Exported builds
 build/
 export.cfg
