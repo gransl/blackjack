@@ -9,7 +9,9 @@ on:
 jobs:
     test:
         runs-on: ubuntu-22.04
-        timeout-minutes: 10
+        timeout-minutes: 15
+        permissions:
+            contents: read
         steps:
             - uses: actions/checkout@v4
             - uses: MikeSchulze/gdUnit4-action@v1
