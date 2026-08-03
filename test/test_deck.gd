@@ -22,5 +22,5 @@ func test_is_empty_method() -> void:
 		test_deck.deal_card()
 	assert_bool(test_deck.is_empty()).is_true()
 	
-func test_this_one_fails() -> void:
+func this_test_fails() -> void:
 	assert_array(test_deck).is_empty()
