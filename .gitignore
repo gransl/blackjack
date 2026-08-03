@@ -7,8 +7,8 @@
 # gdUnit4 test reports
 reports/
 
-#gdUnit4 file
-GdUnitRunner.cfg
+# gdUnit4 runner scratch state
+addons/gdUnit4/GdUnitRunner.cfg
 
 # Exported builds
 build/
