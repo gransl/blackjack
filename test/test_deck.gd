@@ -21,3 +21,6 @@ func test_is_empty_method() -> void:
 	for i in range(52):
 		test_deck.deal_card()
 	assert_bool(test_deck.is_empty()).is_true()
+	
+func this_test_fails() -> void:
+	assert_array(test_deck).is_empty()
