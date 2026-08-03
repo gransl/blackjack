@@ -7,6 +7,9 @@
 # gdUnit4 test reports
 reports/
 
+# gdUnit4 files
+gdUnitRunner.cfg
+
 # Exported builds
 build/
 export.cfg
